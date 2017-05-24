@@ -16,6 +16,7 @@ $(document).ready(function () {
     ra: dadosUser.ra
   }
   $.post('buscarDisciplinasAluno.php', dadosBuscarDisciplinas, function (data) {
+    console.log(data);
     var retorno = JSON.parse(data);
     if (retorno.erro) {
       ALERTA.falha(retorno.msg);

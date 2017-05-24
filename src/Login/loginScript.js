@@ -8,6 +8,7 @@ $(document).ready(function () {
       tipoConta: $('input[name=tipoConta]:checked', '#formLogin').val()
     }
     $.post('loginAction.php',dados, function (data) {
+      console.log(data);
       var retorno = JSON.parse(data);
       if (retorno.erro){
         ALERTA.falha(retorno.msg);

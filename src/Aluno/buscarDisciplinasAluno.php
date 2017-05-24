@@ -49,6 +49,7 @@
     }
 
     //Se tudo correr bem, enviar resultado da consulta e fechar conexão
+    $dados = array();
     while ($row = $respostaConsulta->fetch_assoc()) {
       $dados[] = $row;
     }

@@ -53,14 +53,14 @@ require('../Padroes/header.php');
               </div>
               <div class="col col s8 m8 l8">
                 <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown">
-                  <?php echo explode(' ', ucfirst($_SESSION['nome']))[0];?><i class="mdi-navigation-arrow-drop-down right"></i></a>
+                  <?php //echo explode(' ', ucfirst($_SESSION['nome']))[0];?><i class="mdi-navigation-arrow-drop-down right"></i></a>
                 <ul id="profile-dropdown" class="dropdown-content">
                   <li><a href="#"><i class="mdi-action-face-unlock"></i> Profile</a></li>
                   <li class="divider"></li>
                   <li><a href="index.php?p=logout"><i class="mdi-hardware-keyboard-tab"></i> Logout</a></li>
                 </ul>
                 <p class="user-roal">
-                  <?php echo ucfirst($_SESSION['tipo']); ?>
+                  <?php //echo ucfirst($_SESSION['tipo']); ?>
                 </p>
 
               </div>
