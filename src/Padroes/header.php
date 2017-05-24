@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="description" content="Portal para gerenciar um sistema de chamadas da UNISAL - Lorena-SP">
-    <title>Interdisciplinar - <?php echo ucfirst(filter_input(INPUT_GET, 'p')); ?></title>
+    <title>Interdisciplinar 2017</title>
     <!-- Favicons-->
    <link rel="icon" href="../Imports/images/favicon/favicon-32x32.png" sizes="32x32">
    <!-- Favicons-->

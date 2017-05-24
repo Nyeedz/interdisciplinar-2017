@@ -4,19 +4,43 @@ $(document).ready(function () {
     $('#loader-wrapper').hide();
   }, 1000);
 
+btEspacoVerificarListaChamadas
+btEspacoGerarPresencaAutomatica
+
+  //Show/hide cards
+  $('#btEspacoCadastrarAluno').click(function(){
+      $('#espacoVerificarListaChamadas').slideUp();
+      $('#espacoGerarPresencaAutomatica').slideUp();
+      $('#espacoCadastrarAluno').slideDown();
+  });
+
+  $('#btEspacoVerificarListaChamadas').click(function(){
+      $('#espacoCadastrarAluno').slideUp();
+      $('#espacoGerarPresencaAutomatica').slideUp();
+      $('#espacoVerificarListaChamadas').slideDown();
+  });
+
+  $('#btEspacoGerarPresencaAutomatica').click(function(){
+      $('#espacoCadastrarAluno').slideUp();
+      $('#espacoVerificarListaChamadas').slideUp();
+      $('#espacoGerarPresencaAutomatica').slideDown();
+  })
+
+
   //Verificando persistencia e recebendo dados do user
-  var dadosUser = PERSISTENCIA.test("aluno");
+  var dadosUser = PERSISTENCIA.test("professor");
 
   //Preenchendo campos da view
-  $('#nomeAluno').html(dadosUser.nome);
-  $('#raAluno').html("RA: " + dadosUser.ra);
-  $('#nomeAlunoAside').html(dadosUser.nome.split(' ')[0] + '<i class="mdi-navigation-arrow-drop-down right"></i>');
+  $('#nomeProfessor').html(dadosUser.nome);
+  $('#codProfessor').html("Código: " + dadosUser.codigo);
+  $('#nomeProfessorAside').html(dadosUser.nome.split(' ')[0] + '<i class="mdi-navigation-arrow-drop-down right"></i>');
 
   //Buscando disciplinas
   var dadosBuscarDisciplinas = {
-    ra: dadosUser.ra
+    codigo: dadosUser.codigo
   }
-  $.post('buscarDisciplinasAluno.php', dadosBuscarDisciplinas, function (data) {
+
+  $.post('buscarDisciplinasProfessor.php', dadosBuscarDisciplinas, function (data) {
     var retorno = JSON.parse(data);
     if (retorno.erro) {
       ALERTA.falha(retorno.msg);
@@ -25,42 +49,38 @@ $(document).ready(function () {
       if (retorno.dados) {
         var retornoDados = retorno.dados;
         //Limpa campos das disciplinas
-        var campoDisciplinas = $('#espacoListaMaterias');
-        var campoDisciplinasAside = $('#listaDisciplinasAside');
-        campoDisciplinas.html("");
+        var campoDisciplinasAside = $('#listaTurmasAside');
         campoDisciplinasAside.html("");
-        //Define variável final de concatenação cards 
-        var resultadoDisciplinas =
-          ` <div class="col s12">
-              <h1>Disciplinas</h1>
-            </div> `;
         //Define variável final de concatenação aside 
         var resultadoDisciplinasAside = "";
+        //Define variável final de concatenação selects
+        var resultadoSelectDisciplinas = "";
+        resultadoSelectLabelDisciplinas = "";
         //Adiciona um card por disciplina
         for (key in retornoDados) {
           var dadosDisciplina = retornoDados[key];
-          //concatenação de informação para os cards de disciplinas
-            var htmlAppend = `
-            <div class="col s12 m6 l3">
-              <div class="card">
-                <div class="card-content blue white-text">
-                  <p class="card-stats-title" id="${dadosDisciplina.cod_disciplina}"><i class="mdi-editor-insert-drive-file"></i>${dadosDisciplina.nome_disciplina}</p>
-                  <li class="divider"></li>
-                  <h4 class="card-stats-number">${dadosDisciplina.nome}</h4>
-                </div>
-                <div class="card-action blue darken-2">
-                  <div id="sales-compositebar" class="center-align"></div>
-                </div>
-              </div>
-            </div>`;
-            //Concatenação para lista de desciplinas do aside
-            var htmlAppendAside = `<li><a>${dadosDisciplina.nome_disciplina}</a></li>`
-          resultadoDisciplinas = resultadoDisciplinas.concat(htmlAppend);
+          //Concatenação para lista de desciplinas do aside
+          var htmlAppendAside = `<li><a>${dadosDisciplina.nome_disciplina}</a></li>`
           resultadoDisciplinasAside = resultadoDisciplinasAside.concat(htmlAppendAside);
-        }
+          //Concatenação para selectsA
+          var htmlAppendSelectLabel = `<li class><span>${dadosDisciplina.nome_disciplina}</span></li>`;
+          var htmlAppendSelect = `<option value="${dadosDisciplina.codigo}">${dadosDisciplina.nome_disciplina}</option>`;
+          resultadoSelectDisciplinas = resultadoSelectDisciplinas.concat(htmlAppendSelect);
+          resultadoSelectLabelDisciplinas = resultadoSelectLabelDisciplinas.concat(htmlAppendSelectLabel);
+       }
         //Atualiza view
-        campoDisciplinas.append(resultadoDisciplinas);
         campoDisciplinasAside.append(resultadoDisciplinasAside);
+        //Atualizando todos selects de disciplina
+        
+        $("select.selectDisciplinas").each(function (idx,obj){
+          //console.log(obj);
+          $(obj).append(resultadoSelectDisciplinas);
+        })
+        $(".selectDisciplinas ul").each(function (idx,obj){
+          //console.log(obj);
+          $(obj).append(resultadoSelectLabelDisciplinas);
+        })
+    
       }
     }
   });
@@ -102,7 +122,7 @@ $(document).ready(function () {
                 <td>${isPresente}</td>
                 <td>${dataFormatada}</td>
               </tr>`;
-            resultadoChamadas = resultadoChamadas.concat(htmlAppend);
+          resultadoChamadas = resultadoChamadas.concat(htmlAppend);
         }
         corpoTabela.append(resultadoChamadas);
       }
@@ -110,8 +130,8 @@ $(document).ready(function () {
   });
 
   //Evento de click para o botão de logout
-  $('#btLogoutAluno').click(function(){
+  $('#btLogoutProfessor').click(function () {
     sessionStorage.clear();
-     window.location = '../Login/login.php';
+    window.location = '../Login/login.php';
   })
 });

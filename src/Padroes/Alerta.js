@@ -8,10 +8,10 @@ var ALERTA = (function () {
     }
     return {
         sucesso : function (msg){
-            toastr.success(msg, 'Sucesso');
+            toastr.success(msg,'Sucesso');
         },
         falha : function (msg){
-            toastr.error(msg, 'Erro');
+            toastr.error(msg,'Erro');
         } 
     }
 })();

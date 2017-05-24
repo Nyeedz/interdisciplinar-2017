@@ -8,20 +8,22 @@ $(document).ready(function () {
       tipoConta: $('input[name=tipoConta]:checked', '#formLogin').val()
     }
     $.post('loginAction.php',dados, function (data) {
-      console.log(data);
       var retorno = JSON.parse(data);
       if (retorno.erro){
         ALERTA.falha(retorno.msg);
       } else {
       //Se encontrou usuário, armazena na sessão e direciona
-        if (retorno.dados){
+        if (retorno.dados.length > 0){
           var retornoDados = retorno.dados[0];
           sessionStorage.dadosUser = JSON.stringify(retornoDados);
           sessionStorage.status = true;
+          
           //Define redirecionamento
           if (dados.tipoConta === "aluno"){
+            sessionStorage.tipoConta = "aluno";
             var redirectUrl = "../Aluno/aluno.php";
           } else {
+            sessionStorage.tipoConta = "professor";
             var redirectUrl = "../Professor/professor.php";
           }
           //Imprime alerta de sucesso e redireciona

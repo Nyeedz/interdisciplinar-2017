@@ -2,13 +2,13 @@
   require_once '../BD/bdConfig.php';
 
   //Recebendo dados da req
-  $ra = $_POST['ra'] ?? null;
+  $codigo = $_POST['codigo'] ?? null;
   //Se query for vazia, envia mensagem com erro
-  if (empty($ra)) {
+  if (empty($codigo)) {
     echo json_encode (
       array (
           'erro' => true,
-          'msg' => "RA inválido!!!"
+          'msg' => "Código professor inválido!!!"
       )
     );
   }
@@ -27,13 +27,9 @@
       );
       exit();
     }
-    $query = " SELECT * FROM tb_aluno_disciplina
-               INNER JOIN tb_disciplina
-               ON tb_aluno_disciplina.cod_disciplina = tb_disciplina.codigo
-               INNER JOIN tb_professor
-               ON tb_disciplina.cod_professor = tb_professor.codigo
-               WHERE tb_aluno_disciplina.ra_aluno = '$ra'
-               AND isAtivo = '1'";
+    $query = " SELECT * FROM tb_disciplina
+               WHERE tb_disciplina.cod_professor = '$codigo'";
+
     //Se conexão for estabelecida, executa consulta
     $respostaConsulta = $mysqli->query($query);
       //Verifica se ocorreu erro na consula
