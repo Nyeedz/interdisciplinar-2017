@@ -16,6 +16,7 @@
   //Caso contrário executa Consulta
   else {
     $mysqli = new mysqli(HOST,USER,PASSW,DB);
+    $mysqli->set_charset("utf8");
     //Verifica se ocorreu erro na conexão
     if (mysqli_connect_errno()) {
       echo json_encode (
