@@ -17,10 +17,7 @@ $(document).ready(function () {
     ra: dadosUser.ra
   }
   $.post('buscarDisciplinasAluno.php', dadosBuscarDisciplinas, function (data) {
-<<<<<<< HEAD
-=======
     console.log(data);
->>>>>>> aafe14a87b9749ea5a797a2286ded56c91ff8f46
     var retorno = JSON.parse(data);
     if (retorno.erro) {
       ALERTA.falha(retorno.msg);
@@ -33,12 +30,12 @@ $(document).ready(function () {
         var campoDisciplinasAside = $('#listaDisciplinasAside');
         campoDisciplinas.html("");
         campoDisciplinasAside.html("");
-        //Define variável final de concatenação cards 
+        //Define variável final de concatenação cards
         var resultadoDisciplinas =
           ` <div class="col s12">
               <h1>Disciplinas</h1>
             </div> `;
-        //Define variável final de concatenação aside 
+        //Define variável final de concatenação aside
         var resultadoDisciplinasAside = "";
         //Adiciona um card por disciplina
         for (key in retornoDados) {

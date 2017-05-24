@@ -5,6 +5,9 @@ html {
 .disciplinas {
 
 }
+.card-stats-title {
+  cursor: pointer
+}
 .card-action,
 .centralizar {
   display: flex;
