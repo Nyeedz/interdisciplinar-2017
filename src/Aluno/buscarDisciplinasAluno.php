@@ -49,10 +49,12 @@
     }
 
     //Se tudo correr bem, enviar resultado da consulta e fechar conexão
-    $dados = array();
-    while ($row = $respostaConsulta->fetch_assoc()) {
-      $dados[] = $row;
-    }
+    for($i = 0; $dados[$i] = $respostaConsulta->fetch_assoc(); $i++) ;
+    array_pop($dados);
+    // $dados = array();
+    // while ($row = $respostaConsulta->fetch_assoc()) {
+    //   $dados[] = $row;
+    // }
     echo json_encode (
       array (
         'erro' => false,
