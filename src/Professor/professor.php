@@ -54,7 +54,7 @@ require('../Padroes/header.php');
             <div class="row">
               <div class="col col s8 m8 l8">
                 <ul id="profile-dropdown" class="dropdown-content">
-                  <li><a href="#"><i class="mdi-action-face-unlock"></i> Profile</a></li>
+                  <li id="btPerfilAside"><a href="#"><i class="mdi-action-face-unlock"></i> Perfil</a></li>
                   <li class="divider"></li>
                   <li id="btLogoutProfessor"><a><i class="mdi-hardware-keyboard-tab"></i> Logout</a></li>
                 </ul>
@@ -125,7 +125,7 @@ require('../Padroes/header.php');
                 </div>
               </div>
               <div class="col s12 m6 l3">
-                <div class="card">
+                <div class="card" id="btEspacoPerfil">
                   <div class="card-content purple white-text">
                     <p class="card-stats-title"><i class="mdi-action-account-circle"></i>Informações Pessoais</p>
                   </div>
@@ -146,6 +146,10 @@ require('../Padroes/header.php');
 
             <div id="espacoGerarPresencaAutomatica" class="invisivel">
               <?php require_once "PresencaAutomatica/gerarPresencaAutomatica.php" ?>
+            </div>
+
+            <div id="espacoPerfil" class="invisivel">
+              <?php require_once "Perfil/perfil.php" ?>
             </div>
 
           </div>
@@ -174,6 +178,7 @@ require('../Padroes/header.php');
 <script src="CadastrarAluno/cadastrarAlunoScript.js"></script>
 <script src="VerificarListaChamadas/verificarListaScript.js"></script>
 <script src="PresencaAutomatica/gerarPresencaAutomaticaScript.js"></script>
+<script src="Perfil/perfilScript.js"></script>
 <?php
   require('../Padroes/footer.php');
 ?>

@@ -11,19 +11,37 @@ $(document).ready(function () {
   $('#btEspacoCadastrarAluno').click(function () {
     $('#espacoVerificarListaChamadas').slideUp();
     $('#espacoGerarPresencaAutomatica').slideUp();
+    $('#espacoPerfil').slideUp();
     $('#espacoCadastrarAluno').slideDown();
   });
 
   $('#btEspacoVerificarListaChamadas').click(function () {
     $('#espacoCadastrarAluno').slideUp();
     $('#espacoGerarPresencaAutomatica').slideUp();
+    $('#espacoPerfil').slideUp();
     $('#espacoVerificarListaChamadas').slideDown();
+  
   });
 
   $('#btEspacoGerarPresencaAutomatica').click(function () {
     $('#espacoCadastrarAluno').slideUp();
     $('#espacoVerificarListaChamadas').slideUp();
+    $('#espacoPerfil').slideUp();
     $('#espacoGerarPresencaAutomatica').slideDown();
+  })
+
+  $('#btEspacoPerfil').click(function () {
+    $('#espacoCadastrarAluno').slideUp();
+    $('#espacoVerificarListaChamadas').slideUp();
+    $('#espacoGerarPresencaAutomatica').slideUp();
+    $('#espacoPerfil').slideDown();
+  })
+
+  $('#btPerfilAside').click(function () {
+    $('#espacoCadastrarAluno').slideUp();
+    $('#espacoVerificarListaChamadas').slideUp();
+    $('#espacoGerarPresencaAutomatica').slideUp();
+    $('#espacoPerfil').slideDown();
   })
 
 
