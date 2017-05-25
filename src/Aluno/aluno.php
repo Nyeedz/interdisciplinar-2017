@@ -18,7 +18,7 @@ require('../Padroes/header.php');
             <li>
               <h1 class="logo-wrapper">
               <a href="index.html" class="brand-logo darken-1">
-                <img src="../Imports/images/materialize-logo.png" alt="materialize logo">
+                <img src="../Imports/images/unisal.jpg" alt="materialize logo">
               </a> <span class="logo-text">Materialize</span>
             </h1>
             </li>
@@ -113,7 +113,7 @@ require('../Padroes/header.php');
               </table>
             </div>
           </div>
-          <div id="chart-dashboard">
+          <div id="chart-dashboard" class="grafico">
             <div class="row">
               <div class="col s12">
                 <div class="card">
@@ -128,16 +128,12 @@ require('../Padroes/header.php');
                     <div class="col s12 m8 l8">
                       <div id="doughnut-chart-wrapper">
                         <canvas id="doughnut-chart" height="130"></canvas>
-                        <!-- <div class="doughnut-chart-status">4500
-                          <p class="ultra-small center-align">Sold</p>
-                        </div> -->
                       </div>
                     </div>
                     <div class="col s12 m2 l2">
                       <ul class="doughnut-chart-legend">
-                        <li class="mobile ultra-small"><span class="legend-color"></span>Mobile</li>
-                        <li class="kitchen ultra-small"><span class="legend-color"></span> Kitchen</li>
-                        <li class="home ultra-small"><span class="legend-color"></span> Home</li>
+                        <li class="mobile ultra-small"><span class="legend-color"></span> Faltas</li>
+                        <li class="kitchen ultra-small"><span class="legend-color"></span> Presença</li>
                       </ul>
                     </div>
                   </div>
@@ -181,7 +177,7 @@ require('../Padroes/header.php');
     </div>
     <!-- END MAIN -->
     <!-- START FOOTER -->
-    <footer class="page-footer">
+    <footer class="page-footer" id="footer">
       <div class="footer-copyright">
         <div class="container">
           Copyright © 2015 <a class="grey-text text-lighten-4" href="http://themeforest.net/user/geekslabs/portfolio?ref=geekslabs" target="_blank">GeeksLabs</a> All rights reserved.

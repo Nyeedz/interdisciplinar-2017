@@ -4,8 +4,16 @@ $(document).ready(function () {
     $('#loader-wrapper').hide();
   }, 1000);
   $('#tabela').hide();
+  $('.grafico').hide();
   //Verificando persistencia e recebendo dados do user
   var dadosUser = PERSISTENCIA.test("aluno");
+
+  //convertendo horas para minutos
+  function convert(num) {
+    h = Math.floor(num/60);
+    m = num % 60;
+    return(h+':'+m);
+  }
 
   //Preenchendo campos da view
   $('#nomeAluno').html(dadosUser.nome);
@@ -44,12 +52,12 @@ $(document).ready(function () {
             var htmlAppend = `
             <div class="col s12 m6 l3">
               <div class="card">
-                <div class="card-content blue white-text">
+                <div class="card-content red white-text">
                   <p class="card-stats-title" id="${dadosDisciplina.cod_disciplina}"><i class="mdi-editor-insert-drive-file"></i>${dadosDisciplina.nome_disciplina}</p>
                   <li class="divider"></li>
                   <h4 class="card-stats-number">${dadosDisciplina.nome}</h4>
                 </div>
-                <div class="card-action blue darken-2">
+                <div class="card-action red darken-2">
                   <div id="sales-compositebar" class="center-align"></div>
                 </div>
               </div>
@@ -75,26 +83,28 @@ $(document).ready(function () {
     }
     $.post('atualizarTabelaChamada.php', dadosAtualizarTabela, function (data) {
       var retorno = JSON.parse(data);
+      console.log(retorno);
       if (retorno.erro) {
         ALERTA.falha(retorno.msg);
       } else {
         var retornoDados = retorno.dados;
-        var cargaHorariaDada = retornoDados.length * 2;
+        var cargaHorariaDada = retornoDados.length * 100;
         var cargaHorariaPresente = 0;
-        var cargaHorariaDisciplina = 0;
+        var cargaHorariaDisciplina = retornoDados[0].carga_horaria * 60;
         //Atualiza tabela
         var corpoTabela = $('#corpoTabelaChamadas');
         $('#tabela').show();
+        $('.grafico').show();
         corpoTabela.html("");
         //Define variável final de concatenação
         var resultadoChamadas = "";
 
         for (key in retornoDados) {
-          cargaHorariaPresente = retornoDados[key].carga_horaria;
-          if (retornoDados[key].isPresente){
-            cargaHorariaPresente+=2;
+          if (retornoDados[key].isPresente == 1){
+            cargaHorariaPresente += 100;
           }
-          var cargaHorariaPresente
+          console.log(cargaHorariaPresente);
+
           dadoChamada = retornoDados[key];
           //Verificando do status da chamada
           var isPresente = dadoChamada.isPresente == 1 ? "Presente" : "Ausente";
@@ -115,12 +125,33 @@ $(document).ready(function () {
             resultadoChamadas = resultadoChamadas.concat(htmlAppend);
         }
         corpoTabela.append(resultadoChamadas); //atualiza tabela
-        atualizarGrafico(cargaHorariaDada, cargaHorariaPresente, cargaHorariaDisciplina);
+        console.log(convert(cargaHorariaDada), convert(cargaHorariaPresente), convert(cargaHorariaDisciplina));
+        var data = [
+          {
+            value: cargaHorariaDada - cargaHorariaPresente,
+            color:"#F7464A",
+            highlight: "#FF5A5E",
+            label: "Faltas"
+          },
+          {
+            value: cargaHorariaPresente,
+            color: "#46BFBD",
+            highlight: "#5AD3D1",
+            label: "Presença"
+          },
+          // {
+          //   value: cargaHorariaDisciplina,
+          //   color: "#FDB45C",
+          //   highlight: "#FFC870",
+          //   label: "Carga Horária Disciplina"
+          // }
+        ];
+        graficoPresencaFalta(data);
       }
     });
   });
   //Atualiza gráfico
-  var atualizaGrafico = function (cargaHorariaDada, cargaHorariaPresente, cargaHorariaDisciplina) {
+  var graficoPresencaFalta = function (data) {
     var doughnutChart = document.getElementById("doughnut-chart").getContext("2d");
 		window.myDoughnut = new Chart(doughnutChart).Doughnut(data, {
 			segmentStrokeColor : "#fff",
@@ -132,26 +163,6 @@ $(document).ready(function () {
 			percentageInnerCutout : 60,
 			responsive : true
 		});
-    var data = [
-  	{
-  		value: cargaHorariaDada,
-  		color:"#F7464A",
-  		highlight: "#FF5A5E",
-  		label: "Carga Horária Dada"
-  	},
-  	{
-  		value: cargaHorariaPresente,
-  		color: "#46BFBD",
-  		highlight: "#5AD3D1",
-  		label: "Carga Horária Present"
-  	},
-  	{
-  		value: cargaHorariaDisciplina,
-  		color: "#FDB45C",
-  		highlight: "#FFC870",
-  		label: "Carga Horária Disciplina"
-  	}
-  ];
   }
 // console.log(data);
   //Evento de click para o botão de logout

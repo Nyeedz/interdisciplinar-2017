@@ -33,6 +33,39 @@ header .brand-logo img {
   width: 172px
 }
 /* Alteração do css do materialize */
+.container {
+  margin-bottom: 50px
+}
+#footer {
+  position: fixed;
+  z-index: 9;
+  margin-top: 50px;
+  left:0px;
+  bottom:0px;
+  width:100%;
+  background:#999;
+}
+* html #footer {
+   position:absolute;
+   top:expression((0-(footer.offsetHeight)+(document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight)+(ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop))+'px');
+}
+nav {
+  background-color: #4D9ABE
+}
+header .brand-logo {
+  padding: 7px 32px !important
+}
+@media screen and (max-width: 600px) {
+  header .brand-logo {
+    padding: 2px 32px !important
+  }
+}
+.pagination li.active, footer.page-footer {
+  background-color: #4D9ABE !important
+}
+.cyan.darken-1 {
+  background-color: #4D9ABE !important
+}
 .card-tamanho {
     max-width: 520px
 }
@@ -58,6 +91,13 @@ header .brand-logo img {
     border-bottom: 1px solid #4D9ABE;
     box-shadow: 0 1px 0 0 #4D9ABE
 }
+.input-field input[type=text]:focus + label {
+    color: #4D9ABE
+}
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid #4D9ABE;
+    box-shadow: 0 1px 0 0 #4D9ABE
+}
 .input-field input[type=password]:focus + label {
     color: #4D9ABE
 }
@@ -73,6 +113,10 @@ header .brand-logo img {
 [type="radio"]:checked+label:after,
 [type="radio"].with-gap:checked+label:after {
     background-color: #4D9ABE;
+}
+input[type="text"]:focus:not([randonly]) {
+  border-bottom: 1px solid #4D9ABE;
+  box-shadow: 0 1px 0 0 #4D9ABE;
 }
 .container .row {
     margin: 0 auto
@@ -108,8 +152,6 @@ header .brand-logo img {
     background: url('../images/fundo.jpg') no-repeat center/cover;
     filter: grayscale(100%);
 }
-
-
 .invisivel{
     display: none;
 }
