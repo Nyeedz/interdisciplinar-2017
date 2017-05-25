@@ -115,45 +115,44 @@ $(document).ready(function () {
             resultadoChamadas = resultadoChamadas.concat(htmlAppend);
         }
         corpoTabela.append(resultadoChamadas); //atualiza tabela
-        atualizaGrafico(cargaHorariaDada, cargaHorariaPresente, cargaHorariaDisciplina);
+        atualizarGrafico(cargaHorariaDada, cargaHorariaPresente, cargaHorariaDisciplina);
       }
     });
   });
   //Atualiza gráfico
-  // var atualizaGrafico = function (cargaHorariaDada, cargaHorariaPresente, cargaHorariaDisciplina) {
-  //   var doughnutChart = document.getElementById("doughnut-chart").getContext("2d");
-	// 	window.myDoughnut = new Chart(doughnutChart).Doughnut(data, {
-	// 		segmentStrokeColor : "#fff",
-	// 		tooltipTitleFontFamily: "'Roboto','Helvetica Neue', 'Helvetica', 'Arial', sans-serif",// String - Tooltip title font declaration for the scale label
-	// 		percentageInnerCutout : 50,
-	// 		animationSteps : 50,
-	// 		segmentStrokeWidth : 5,
-	// 		animateScale: true,
-	// 		percentageInnerCutout : 60,
-	// 		responsive : true
-	// 	});
-  // }
-
-//   var data = [
-// 	{
-// 		value: cargaHorariaDada,
-// 		color:"#F7464A",
-// 		highlight: "#FF5A5E",
-// 		label: "Red"
-// 	},
-// 	{
-// 		value: cargaHorariaPresente,
-// 		color: "#46BFBD",
-// 		highlight: "#5AD3D1",
-// 		label: "Green"
-// 	},
-// 	{
-// 		value: cargaHorariaDisciplina,
-// 		color: "#FDB45C",
-// 		highlight: "#FFC870",
-// 		label: "Yellow"
-// 	}
-// ];
+  var atualizaGrafico = function (cargaHorariaDada, cargaHorariaPresente, cargaHorariaDisciplina) {
+    var doughnutChart = document.getElementById("doughnut-chart").getContext("2d");
+		window.myDoughnut = new Chart(doughnutChart).Doughnut(data, {
+			segmentStrokeColor : "#fff",
+			tooltipTitleFontFamily: "'Roboto','Helvetica Neue', 'Helvetica', 'Arial', sans-serif",// String - Tooltip title font declaration for the scale label
+			percentageInnerCutout : 50,
+			animationSteps : 50,
+			segmentStrokeWidth : 5,
+			animateScale: true,
+			percentageInnerCutout : 60,
+			responsive : true
+		});
+    var data = [
+  	{
+  		value: cargaHorariaDada,
+  		color:"#F7464A",
+  		highlight: "#FF5A5E",
+  		label: "Carga Horária Dada"
+  	},
+  	{
+  		value: cargaHorariaPresente,
+  		color: "#46BFBD",
+  		highlight: "#5AD3D1",
+  		label: "Carga Horária Present"
+  	},
+  	{
+  		value: cargaHorariaDisciplina,
+  		color: "#FDB45C",
+  		highlight: "#FFC870",
+  		label: "Carga Horária Disciplina"
+  	}
+  ];
+  }
 // console.log(data);
   //Evento de click para o botão de logout
   $('#btLogoutAluno').click(function(){
