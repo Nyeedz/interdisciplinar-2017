@@ -8,13 +8,6 @@ $(document).ready(function () {
   //Verificando persistencia e recebendo dados do user
   var dadosUser = PERSISTENCIA.test("aluno");
 
-  //convertendo horas para minutos
-  function convert(num) {
-    h = Math.floor(num/60);
-    m = num % 60;
-    return(h+':'+m);
-  }
-
   //Preenchendo campos da view
   $('#nomeAluno').html(dadosUser.nome);
   $('#raAluno').html("RA: " + dadosUser.ra);
@@ -49,7 +42,7 @@ $(document).ready(function () {
         for (key in retornoDados) {
           var dadosDisciplina = retornoDados[key];
           //concatenação de informação para os cards de disciplinas
-            var htmlAppend = `
+          var htmlAppend = `
             <div class="col s12 m6 l3">
               <div class="card">
                 <div class="card-content red white-text">
@@ -62,8 +55,8 @@ $(document).ready(function () {
                 </div>
               </div>
             </div>`;
-            //Concatenação para lista de desciplinas do aside
-            var htmlAppendAside = `<li><a>${dadosDisciplina.nome_disciplina}</a></li>`
+          //Concatenação para lista de desciplinas do aside
+          var htmlAppendAside = `<li><a>${dadosDisciplina.nome_disciplina}</a></li>`
           resultadoDisciplinas = resultadoDisciplinas.concat(htmlAppend);
           resultadoDisciplinasAside = resultadoDisciplinasAside.concat(htmlAppendAside);
         }
@@ -83,28 +76,30 @@ $(document).ready(function () {
     }
     $.post('atualizarTabelaChamada.php', dadosAtualizarTabela, function (data) {
       var retorno = JSON.parse(data);
-      console.log(retorno);
       if (retorno.erro) {
         ALERTA.falha(retorno.msg);
       } else {
         var retornoDados = retorno.dados;
-        var cargaHorariaDada = retornoDados.length * 100;
+        var cargaHorariaAusente = 0;
         var cargaHorariaPresente = 0;
-        var cargaHorariaDisciplina = retornoDados[0].carga_horaria * 60;
+        var cargaHorariaDisciplina = retornoDados[0] ? retornoDados[0].carga_horaria : 0;
         //Atualiza tabela
         var corpoTabela = $('#corpoTabelaChamadas');
-        $('#tabela').show();
-        $('.grafico').show();
         corpoTabela.html("");
         //Define variável final de concatenação
         var resultadoChamadas = "";
-
+        //Exibe tabela e gráfico
+        $('#tabela').show();
+        $('.grafico').show();
+        
         for (key in retornoDados) {
-          if (retornoDados[key].isPresente == 1){
-            cargaHorariaPresente += 100;
+          //Se aluno estava presente
+          if (retornoDados[key].isPresente == 1) {
+            cargaHorariaPresente += 2;
+          }else{
+            cargaHorariaAusente += 2;
           }
-          console.log(cargaHorariaPresente);
-
+        
           dadoChamada = retornoDados[key];
           //Verificando do status da chamada
           var isPresente = dadoChamada.isPresente == 1 ? "Presente" : "Ausente";
@@ -122,29 +117,29 @@ $(document).ready(function () {
                 <td>${isPresente}</td>
                 <td>${dataFormatada}</td>
               </tr>`;
-            resultadoChamadas = resultadoChamadas.concat(htmlAppend);
+          resultadoChamadas = resultadoChamadas.concat(htmlAppend);
         }
         corpoTabela.append(resultadoChamadas); //atualiza tabela
-        console.log(convert(cargaHorariaDada), convert(cargaHorariaPresente), convert(cargaHorariaDisciplina));
+        //Dados do gráfico
         var data = [
           {
-            value: cargaHorariaDada - cargaHorariaPresente,
-            color:"#F7464A",
+            value: parseFloat(cargaHorariaAusente * 100 / cargaHorariaDisciplina),
+            color: "#F7464A",
             highlight: "#FF5A5E",
             label: "Faltas"
           },
           {
-            value: cargaHorariaPresente,
+            value:  parseFloat(cargaHorariaPresente * 100 / cargaHorariaDisciplina),
             color: "#46BFBD",
             highlight: "#5AD3D1",
             label: "Presença"
           },
-          // {
-          //   value: cargaHorariaDisciplina,
-          //   color: "#FDB45C",
-          //   highlight: "#FFC870",
-          //   label: "Carga Horária Disciplina"
-          // }
+          {
+             value: 100,
+             color: "#FDB45C",
+             highlight: "#FFC870",
+             label: "Carga Horária Disciplina"
+           }
         ];
         graficoPresencaFalta(data);
       }
@@ -153,21 +148,20 @@ $(document).ready(function () {
   //Atualiza gráfico
   var graficoPresencaFalta = function (data) {
     var doughnutChart = document.getElementById("doughnut-chart").getContext("2d");
-		window.myDoughnut = new Chart(doughnutChart).Doughnut(data, {
-			segmentStrokeColor : "#fff",
-			tooltipTitleFontFamily: "'Roboto','Helvetica Neue', 'Helvetica', 'Arial', sans-serif",// String - Tooltip title font declaration for the scale label
-			percentageInnerCutout : 50,
-			animationSteps : 50,
-			segmentStrokeWidth : 5,
-			animateScale: true,
-			percentageInnerCutout : 60,
-			responsive : true
-		});
+    window.myDoughnut = new Chart(doughnutChart).Doughnut(data, {
+      segmentStrokeColor: "#fff",
+      tooltipTitleFontFamily: "'Roboto','Helvetica Neue', 'Helvetica', 'Arial', sans-serif",// String - Tooltip title font declaration for the scale label
+      percentageInnerCutout: 50,
+      animationSteps: 50,
+      segmentStrokeWidth: 5,
+      animateScale: true,
+      percentageInnerCutout: 60,
+      responsive: true
+    });
   }
-// console.log(data);
   //Evento de click para o botão de logout
-  $('#btLogoutAluno').click(function(){
+  $('#btLogoutAluno').click(function () {
     sessionStorage.clear();
-     window.location = '../Login/login.php';
+    window.location = '../Login/login.php';
   })
 });

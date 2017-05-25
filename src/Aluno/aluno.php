@@ -132,8 +132,10 @@ require('../Padroes/header.php');
                     </div>
                     <div class="col s12 m2 l2">
                       <ul class="doughnut-chart-legend">
+                        <li class="home ultra-small"><span class="legend-color"></span>Carga horária Total</li>
                         <li class="mobile ultra-small"><span class="legend-color"></span> Faltas</li>
                         <li class="kitchen ultra-small"><span class="legend-color"></span> Presença</li>
+
                       </ul>
                     </div>
                   </div>
