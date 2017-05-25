@@ -3,7 +3,7 @@ $(document).ready(function () {
   setTimeout(function () {
     $('#loader-wrapper').hide();
   }, 1000);
-
+  $('#tabela').hide();
   //Verificando persistencia e recebendo dados do user
   var dadosUser = PERSISTENCIA.test("aluno");
 
@@ -75,17 +75,27 @@ $(document).ready(function () {
     }
     $.post('atualizarTabelaChamada.php', dadosAtualizarTabela, function (data) {
       var retorno = JSON.parse(data);
+      console.log(retorno);
       if (retorno.erro) {
         ALERTA.falha(retorno.msg);
       } else {
         var retornoDados = retorno.dados;
+        var cargaHorariaDada = retornoDados.length * 2;
+        var cargaHorariaPresente = 0;
+        var cargaHorariaDisciplina = 0;
         //Atualiza tabela
         var corpoTabela = $('#corpoTabelaChamadas');
+        $('#tabela').show();
         corpoTabela.html("");
         //Define variável final de concatenação
         var resultadoChamadas = "";
 
         for (key in retornoDados) {
+          cargaHorariaPresente = retornoDados[key].carga_horaria;
+          if (retornoDados[key].isPresente){
+            cargaHorariaPresente+=2;
+          }
+          var cargaHorariaPresente
           dadoChamada = retornoDados[key];
           //Verificando do status da chamada
           var isPresente = dadoChamada.isPresente == 1 ? "Presente" : "Ausente";
@@ -105,10 +115,27 @@ $(document).ready(function () {
               </tr>`;
             resultadoChamadas = resultadoChamadas.concat(htmlAppend);
         }
-        corpoTabela.append(resultadoChamadas);
+        corpoTabela.append(resultadoChamadas); //atualiza tabela
+        //atualizaGrafico(1,2,3);
       }
     });
   });
+
+  //Atualiza gráfico
+  // var atualizaGrafico = function (1,2,3){
+  //   $('#chart-dashboard').show();
+  //   var doughnutChart = document.getElementById("doughnut-chart").getContext("2d");
+  //   window.myDoughnut = new Chart(doughnutChart).Doughnut(doughnutData, {
+  //     segmentStrokeColor : "#fff",
+  //     tooltipTitleFontFamily: "'Roboto','Helvetica Neue', 'Helvetica', 'Arial', sans-serif",// String - Tooltip title font declaration for the scale label
+  //     percentageInnerCutout : 50,
+  //     animationSteps : 15,
+  //     segmentStrokeWidth : 4,
+  //     animateScale: true,
+  //     percentageInnerCutout : 60,
+  //     responsive : true
+  //   });
+  // }
 
   //Evento de click para o botão de logout
   $('#btLogoutAluno').click(function(){

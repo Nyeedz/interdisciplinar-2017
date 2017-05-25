@@ -25,7 +25,6 @@
     <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
     <link href="../Imports/js/plugins/perfect-scrollbar/perfect-scrollbar.css" type="text/css" rel="stylesheet" media="screen,projection">
     <link href="../Imports/js/plugins/jvectormap/jquery-jvectormap.css" type="text/css" rel="stylesheet" media="screen,projection">
-    <link href="../Imports/js/plugins/chartist-js/chartist.min.css" type="text/css" rel="stylesheet" media="screen,projection">
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
   </head>
