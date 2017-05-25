@@ -17,7 +17,7 @@ $(document).ready(function () {
     ra: dadosUser.ra
   }
   $.post('buscarDisciplinasAluno.php', dadosBuscarDisciplinas, function (data) {
-    console.log(data);
+
     var retorno = JSON.parse(data);
     if (retorno.erro) {
       ALERTA.falha(retorno.msg);
@@ -75,7 +75,6 @@ $(document).ready(function () {
     }
     $.post('atualizarTabelaChamada.php', dadosAtualizarTabela, function (data) {
       var retorno = JSON.parse(data);
-      console.log(retorno);
       if (retorno.erro) {
         ALERTA.falha(retorno.msg);
       } else {
@@ -116,27 +115,46 @@ $(document).ready(function () {
             resultadoChamadas = resultadoChamadas.concat(htmlAppend);
         }
         corpoTabela.append(resultadoChamadas); //atualiza tabela
-        //atualizaGrafico(1,2,3);
+        atualizaGrafico(cargaHorariaDada, cargaHorariaPresente, cargaHorariaDisciplina);
       }
     });
   });
-
   //Atualiza gráfico
-  // var atualizaGrafico = function (1,2,3){
-  //   $('#chart-dashboard').show();
+  // var atualizaGrafico = function (cargaHorariaDada, cargaHorariaPresente, cargaHorariaDisciplina) {
   //   var doughnutChart = document.getElementById("doughnut-chart").getContext("2d");
-  //   window.myDoughnut = new Chart(doughnutChart).Doughnut(doughnutData, {
-  //     segmentStrokeColor : "#fff",
-  //     tooltipTitleFontFamily: "'Roboto','Helvetica Neue', 'Helvetica', 'Arial', sans-serif",// String - Tooltip title font declaration for the scale label
-  //     percentageInnerCutout : 50,
-  //     animationSteps : 15,
-  //     segmentStrokeWidth : 4,
-  //     animateScale: true,
-  //     percentageInnerCutout : 60,
-  //     responsive : true
-  //   });
+	// 	window.myDoughnut = new Chart(doughnutChart).Doughnut(data, {
+	// 		segmentStrokeColor : "#fff",
+	// 		tooltipTitleFontFamily: "'Roboto','Helvetica Neue', 'Helvetica', 'Arial', sans-serif",// String - Tooltip title font declaration for the scale label
+	// 		percentageInnerCutout : 50,
+	// 		animationSteps : 50,
+	// 		segmentStrokeWidth : 5,
+	// 		animateScale: true,
+	// 		percentageInnerCutout : 60,
+	// 		responsive : true
+	// 	});
   // }
 
+//   var data = [
+// 	{
+// 		value: cargaHorariaDada,
+// 		color:"#F7464A",
+// 		highlight: "#FF5A5E",
+// 		label: "Red"
+// 	},
+// 	{
+// 		value: cargaHorariaPresente,
+// 		color: "#46BFBD",
+// 		highlight: "#5AD3D1",
+// 		label: "Green"
+// 	},
+// 	{
+// 		value: cargaHorariaDisciplina,
+// 		color: "#FDB45C",
+// 		highlight: "#FFC870",
+// 		label: "Yellow"
+// 	}
+// ];
+// console.log(data);
   //Evento de click para o botão de logout
   $('#btLogoutAluno').click(function(){
     sessionStorage.clear();

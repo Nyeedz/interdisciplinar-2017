@@ -99,7 +99,7 @@ require('../Padroes/header.php');
               <h1>Chamadas</h1>
             </div>
             <div class="col s12">
-              <table class="resposive-table highlight striped">
+              <table class="resposive-table highlight striped centered">
                 <thead>
                   <tr>
                     <th>Código disciplina</th>

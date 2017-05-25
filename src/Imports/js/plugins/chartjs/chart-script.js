@@ -297,14 +297,33 @@ window.onload = function(){
 	// 	tooltipXOffset: 10,// Number - Pixel offset from point x to tooltip edge
 	// 	responsive: true
 	// 	});
-
+	var data = [
+	{
+			value: 300,
+			color:"#F7464A",
+			highlight: "#FF5A5E",
+			label: "Red"
+	},
+	{
+			value: 50,
+			color: "#46BFBD",
+			highlight: "#5AD3D1",
+			label: "Green"
+	},
+	{
+			value: 100,
+			color: "#FDB45C",
+			highlight: "#FFC870",
+			label: "Yellow"
+	}
+];
 		var doughnutChart = document.getElementById("doughnut-chart").getContext("2d");
-		window.myDoughnut = new Chart(doughnutChart).Doughnut(doughnutData, {
+		window.myDoughnut = new Chart(doughnutChart).Doughnut(data, {
 			segmentStrokeColor : "#fff",
 			tooltipTitleFontFamily: "'Roboto','Helvetica Neue', 'Helvetica', 'Arial', sans-serif",// String - Tooltip title font declaration for the scale label
 			percentageInnerCutout : 50,
-			animationSteps : 15,
-			segmentStrokeWidth : 4,
+			animationSteps : 50,
+			segmentStrokeWidth : 5,
 			animateScale: true,
 			percentageInnerCutout : 60,
 			responsive : true
