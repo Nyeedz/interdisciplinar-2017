@@ -7,16 +7,17 @@
                 <form class="col s12">
                     <div class="row">
                         <!-- Select Disciplina -->
-                        <div class="input-field col s12">
+                        <div class="input-field col s8">
                             <div class="select-wrapper initialized">
-                                <select class="initialized selectDisciplinas">
-                                    <option value="1">Manager</option>
-                                    <option value="2">Developer</option>
-                                    <option value="3">Business</option>
-                                </select>
+                                <select class="initialized selectDisciplinas" id="selectVerificaListaChamadas"></select>
                             </div>
                             <label>Selecione a disciplina:</label>
-                        </div>                        
+                        </div>      
+
+                        <div class="col s4">
+                            <button type="button" class="btn waves-effect waves-light right" id="btBuscarChamadas">Buscar</button>
+                        </div>
+
                     </div>
 
                     <!-- tabela chamadas -->
@@ -30,12 +31,12 @@
                                 <tr>
                                     <th>Código disciplina</th>
                                     <th>Nome Disciplina</th>
-                                    <th>Professor</th>
+                                    <th>Nome Aluno</th>
                                     <th>Status</th>
                                     <th>Data</th>
                                 </tr>
                                 </thead>
-                                <tbody id="corpoTabelaChamadas"></tbody>
+                                <tbody id="corpoTabelaChamadasProfessor"></tbody>
                             </table>
                         </div>
                     </div>

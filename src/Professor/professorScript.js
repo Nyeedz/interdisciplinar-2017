@@ -4,26 +4,26 @@ $(document).ready(function () {
     $('#loader-wrapper').hide();
   }, 1000);
 
-btEspacoVerificarListaChamadas
-btEspacoGerarPresencaAutomatica
+  btEspacoVerificarListaChamadas
+  btEspacoGerarPresencaAutomatica
 
   //Show/hide cards
-  $('#btEspacoCadastrarAluno').click(function(){
-      $('#espacoVerificarListaChamadas').slideUp();
-      $('#espacoGerarPresencaAutomatica').slideUp();
-      $('#espacoCadastrarAluno').slideDown();
+  $('#btEspacoCadastrarAluno').click(function () {
+    $('#espacoVerificarListaChamadas').slideUp();
+    $('#espacoGerarPresencaAutomatica').slideUp();
+    $('#espacoCadastrarAluno').slideDown();
   });
 
-  $('#btEspacoVerificarListaChamadas').click(function(){
-      $('#espacoCadastrarAluno').slideUp();
-      $('#espacoGerarPresencaAutomatica').slideUp();
-      $('#espacoVerificarListaChamadas').slideDown();
+  $('#btEspacoVerificarListaChamadas').click(function () {
+    $('#espacoCadastrarAluno').slideUp();
+    $('#espacoGerarPresencaAutomatica').slideUp();
+    $('#espacoVerificarListaChamadas').slideDown();
   });
 
-  $('#btEspacoGerarPresencaAutomatica').click(function(){
-      $('#espacoCadastrarAluno').slideUp();
-      $('#espacoVerificarListaChamadas').slideUp();
-      $('#espacoGerarPresencaAutomatica').slideDown();
+  $('#btEspacoGerarPresencaAutomatica').click(function () {
+    $('#espacoCadastrarAluno').slideUp();
+    $('#espacoVerificarListaChamadas').slideUp();
+    $('#espacoGerarPresencaAutomatica').slideDown();
   })
 
 
@@ -67,20 +67,16 @@ btEspacoGerarPresencaAutomatica
           var htmlAppendSelect = `<option value="${dadosDisciplina.codigo}">${dadosDisciplina.nome_disciplina}</option>`;
           resultadoSelectDisciplinas = resultadoSelectDisciplinas.concat(htmlAppendSelect);
           resultadoSelectLabelDisciplinas = resultadoSelectLabelDisciplinas.concat(htmlAppendSelectLabel);
-       }
+        }
         //Atualiza view
         campoDisciplinasAside.append(resultadoDisciplinasAside);
         //Atualizando todos selects de disciplina
-        
-        $("select.selectDisciplinas").each(function (idx,obj){
+
+        $("select.selectDisciplinas").each(function (idx, obj) {
           //console.log(obj);
           $(obj).append(resultadoSelectDisciplinas);
-        })
-        $(".selectDisciplinas ul").each(function (idx,obj){
-          //console.log(obj);
-          $(obj).append(resultadoSelectLabelDisciplinas);
-        })
-    
+          $(obj).trigger('contentChanged');
+        });
       }
     }
   });
@@ -133,5 +129,10 @@ btEspacoGerarPresencaAutomatica
   $('#btLogoutProfessor').click(function () {
     sessionStorage.clear();
     window.location = '../Login/login.php';
-  })
+  });
+
+  //Evento para select materialize
+  $('select').on('contentChanged', function () {
+    $(this).material_select();
+  });
 });

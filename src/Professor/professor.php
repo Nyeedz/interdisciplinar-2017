@@ -171,6 +171,9 @@ require('../Padroes/header.php');
 <!-- importando scripts próprios -->
 <script src="../Padroes/Persistencia.js"></script>
 <script src="professorScript.js"></script>
+<script src="CadastrarAluno/cadastrarAlunoScript.js"></script>
+<script src="VerificarListaChamadas/verificarListaScript.js"></script>
+<script src="PresencaAutomatica/gerarPresencaAutomaticaScript.js"></script>
 <?php
   require('../Padroes/footer.php');
 ?>
