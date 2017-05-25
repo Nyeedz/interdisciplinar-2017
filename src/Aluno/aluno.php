@@ -49,8 +49,8 @@ require('../Padroes/header.php');
           <li class="user-details cyan darken-2">
             <div class="row">
               <div class="col col s8 m8 l8">
-                <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" 
-                 href="#" 
+                <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn"
+                 href="#"
                  data-activates="profile-dropdown"
                  id = "nomeAlunoAside"><i class="mdi-navigation-arrow-drop-down right"></i></a>
                 <ul id="profile-dropdown" class="dropdown-content">
@@ -85,8 +85,6 @@ require('../Padroes/header.php');
       <section id="content">
         <!--start container-->
         <div class="container">
-          <!--chart dashboard start-->
-          <!-- chart here -->
           <!--card stats start-->
           <div id="card-stats">
             <div class="row" id="espacoListaMaterias">
@@ -96,7 +94,7 @@ require('../Padroes/header.php');
             </div>
           </div>
           <!--card stats end-->
-          <div class="row">
+          <div class="row" id="tabela">
             <div class="col s12">
               <h1>Chamadas</h1>
             </div>
@@ -113,6 +111,66 @@ require('../Padroes/header.php');
                 </thead>
                 <tbody id="corpoTabelaChamadas"></tbody>
               </table>
+            </div>
+          </div>
+          <div id="chart-dashboard">
+            <div class="row">
+              <div class="col s12">
+                <div class="card">
+                  <div class="card-move-up waves-effect waves-block waves-light">
+                    <div class="move-up cyan darken-1">
+                      <div>
+                        <span class="chart-title white-text">Graficos</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-content">
+                    <div class="col s12 m8 l8">
+                      <div id="doughnut-chart-wrapper">
+                        <canvas id="doughnut-chart" height="130"></canvas>
+                        <!-- <div class="doughnut-chart-status">4500
+                          <p class="ultra-small center-align">Sold</p>
+                        </div> -->
+                      </div>
+                    </div>
+                    <div class="col s12 m2 l2">
+                      <ul class="doughnut-chart-legend">
+                        <li class="mobile ultra-small"><span class="legend-color"></span>Mobile</li>
+                        <li class="kitchen ultra-small"><span class="legend-color"></span> Kitchen</li>
+                        <li class="home ultra-small"><span class="legend-color"></span> Home</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="col s12 m6 l4">
+                <div id="profile-card" class="card">
+                  <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="../Imports/images/user-bg.jpg" alt="user background">
+                  </div>
+                  <div class="card-content">
+                    <img src="../Imports/images/avatar.jpg" alt="" class="circle responsive-img activator card-profile-image">
+                    <a class="btn-floating activator btn-move-up waves-effect waves-light darken-2 right">
+                      <i class="mdi-action-account-circle"></i>
+                    </a>
+
+                    <span class="card-title activator grey-text text-darken-4"> nome aluno</span>
+                    <p><i class="mdi-action-perm-identity cyan-text text-darken-2"></i> Aluno</p>
+                    <p><i class="mdi-action-perm-phone-msg cyan-text text-darken-2"></i> telefone aluno</p>
+                    <p><i class="mdi-communication-email cyan-text text-darken-2"></i> email aluno</p>
+
+                  </div>
+                  <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4"> nome aluno <i class="mdi-navigation-close right"></i></span>
+                    <p>Here is some more information about this card.</p>
+                    <p><i class="mdi-action-perm-identity cyan-text text-darken-2"></i> Project Manager</p>
+                    <p><i class="mdi-action-perm-phone-msg cyan-text text-darken-2"></i> +1 (612) 222 8989</p>
+                    <p><i class="mdi-communication-email cyan-text text-darken-2"></i> mail@domain.com</p>
+                    <p><i class="mdi-social-cake cyan-text text-darken-2"></i> 18th June 1990</p>
+                    <p><i class="mdi-device-airplanemode-on cyan-text text-darken-2"></i> BAR - AUS</p>
+                  </div>
+                </div>
+              </div> -->
             </div>
           </div>
           <!--end container-->
