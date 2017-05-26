@@ -100,7 +100,7 @@ $(document).ready(function () {
         //Exibe tabela e gráfico
         $('#tabela').show();
         $('.grafico').show();
-        
+
         for (key in retornoDados) {
           //Se aluno estava presente
           if (retornoDados[key].isPresente == 1) {
@@ -108,7 +108,7 @@ $(document).ready(function () {
           }else{
             cargaHorariaAusente += 2;
           }
-        
+
           dadoChamada = retornoDados[key];
           //Verificando do status da chamada
           var isPresente = dadoChamada.isPresente == 1 ? "Presente" : "Ausente";
@@ -130,6 +130,9 @@ $(document).ready(function () {
         }
         corpoTabela.append(resultadoChamadas); //atualiza tabela
         //Dados do gráfico
+        var percent = cargaHorariaAusente * 100 / cargaHorariaDisciplina;
+        var xxx = percent+'%';
+        console.log(xxx);
         var data = [
           {
             value: parseFloat(cargaHorariaAusente * 100 / cargaHorariaDisciplina),
@@ -139,8 +142,8 @@ $(document).ready(function () {
           },
           {
             value:  parseFloat(cargaHorariaPresente * 100 / cargaHorariaDisciplina),
-            color: "#46BFBD",
-            highlight: "#5AD3D1",
+            color: "#4CAF50",
+            highlight: "#1B5E20",
             label: "Presença"
           },
           {

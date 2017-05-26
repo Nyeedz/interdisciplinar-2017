@@ -19,7 +19,7 @@ require('../Padroes/header.php');
               <h1 class="logo-wrapper">
               <a href="" class="brand-logo darken-1">
                 <img src="../Imports/images/unisal.jpg" alt="materialize logo">
-              </a>
+              </a> <span class="logo-text">Unisal</span>
             </h1>
             </li>
           </ul>
@@ -65,7 +65,7 @@ require('../Padroes/header.php');
           <li class="no-padding">
             <ul class="collapsible collapsible-accordion">
               <li class="bold">
-                <a class="collapsible-header waves-effect waves-cyan"><i class="mdi-social-school"></i> Disciplinas</a>
+                <a class="collapsible-header waves-effect waves-cyan"><i class="mdi-social-school"></i> Lista Disciplinas</a>
                 <div class="collapsible-body">
                   <ul id="listaDisciplinasAside">
                   </ul>
@@ -127,7 +127,7 @@ require('../Padroes/header.php');
                         <canvas id="doughnut-chart" height="130"></canvas>
                       </div>
                     </div>
-                    <div class="col s12 m2 l2">
+                    <div class="col s12 m2 l4">
                       <ul class="doughnut-chart-legend">
                         <li class="home ultra-small"><span class="legend-color"></span>Carga horária Total</li>
                         <li class="mobile ultra-small"><span class="legend-color"></span> Faltas</li>
@@ -150,8 +150,8 @@ require('../Padroes/header.php');
 
                     <span class="card-title activator grey-text text-darken-4" id="professorCardNome"></span>
                     <p>
-                      <i class="mdi-action-perm-identity cyan-text text-darken-2" ></i> 
-                      Professor 
+                      <i class="mdi-action-perm-identity cyan-text text-darken-2" ></i>
+                      Professor
                     </p>
                     <p>
                       <i class="mdi-action-perm-phone-msg cyan-text text-darken-2" id="professorCardTelefone"></i>

@@ -20,7 +20,7 @@ $(document).ready(function () {
     $('#espacoGerarPresencaAutomatica').slideUp();
     $('#espacoPerfil').slideUp();
     $('#espacoVerificarListaChamadas').slideDown();
-  
+
   });
 
   $('#btEspacoGerarPresencaAutomatica').click(function () {
@@ -43,7 +43,6 @@ $(document).ready(function () {
     $('#espacoGerarPresencaAutomatica').slideUp();
     $('#espacoPerfil').slideDown();
   })
-
 
   //Verificando persistencia e recebendo dados do user
   var dadosUser = PERSISTENCIA.test("professor");
@@ -69,7 +68,7 @@ $(document).ready(function () {
         //Limpa campos das disciplinas
         var campoDisciplinasAside = $('#listaTurmasAside');
         campoDisciplinasAside.html("");
-        //Define variável final de concatenação aside 
+        //Define variável final de concatenação aside
         var resultadoDisciplinasAside = "";
         //Define variável final de concatenação selects
         var resultadoSelectDisciplinas = "";

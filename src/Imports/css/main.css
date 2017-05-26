@@ -125,6 +125,9 @@ input[type="text"]:focus:not([randonly]) {
   border-bottom: 1px solid #4D9ABE;
   box-shadow: 0 1px 0 0 #4D9ABE;
 }
+ul.dropdown-content.select-dropdown li span {
+    color: #4D9ABE !important  
+}
 .container .row {
     margin: 0 auto
 }

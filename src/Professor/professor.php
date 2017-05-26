@@ -22,8 +22,8 @@ require('../Padroes/header.php');
             <li>
               <h1 class="logo-wrapper">
             <a href="index.html" class="brand-logo darken-1">
-              <img src="../Imports/images/materialize-logo.png" alt="materialize logo">
-            </a> <span class="logo-text">Materialize</span>
+              <img src="../Imports/images/unisal.jpg" alt="materialize logo">
+            </a> <span class="logo-text">Unisal</span>
           </h1>
             </li>
           </ul>
@@ -75,7 +75,7 @@ require('../Padroes/header.php');
           <li class="no-padding">
             <ul class="collapsible collapsible-accordion">
               <li class="bold">
-                <a class="collapsible-header  waves-effect waves-cyan"><i class="mdi-action-work"></i> Turmas</a>
+                <a class="collapsible-header  waves-effect waves-cyan"><i class="mdi-action-work"></i> Listar Turmas</a>
                 <div class="collapsible-body">
                   <ul id="listaTurmasAside"></ul>
                 </div>
