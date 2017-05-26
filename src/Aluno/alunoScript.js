@@ -45,8 +45,8 @@ $(document).ready(function () {
           var htmlAppend = `
             <div class="col s12 m6 l3">
               <div class="card">
-                <div class="card-content red white-text">
-                  <p class="card-stats-title" id="${dadosDisciplina.cod_disciplina}"><i class="mdi-editor-insert-drive-file"></i>${dadosDisciplina.nome_disciplina}</p>
+                <div class="card-content red white-text" id="${dadosDisciplina.cod_disciplina}">
+                  <p class="card-stats-title"><i class="mdi-editor-insert-drive-file"></i>${dadosDisciplina.nome_disciplina}</p>
                   <li class="divider"></li>
                   <h4 class="card-stats-number">${dadosDisciplina.nome}</h4>
                 </div>
@@ -68,7 +68,7 @@ $(document).ready(function () {
   });
 
   //Evento para o click no nome da disciplina, atualizar tabela de chamdas
-  $('#espacoListaMaterias').on("click", ".card-stats-title", function () {
+  $('#espacoListaMaterias').on("click", ".card-content", function () {
     var idDisciplina = $(this).attr('id');
     var dadosAtualizarTabela = {
       idDisciplina: idDisciplina,
@@ -80,7 +80,15 @@ $(document).ready(function () {
         ALERTA.falha(retorno.msg);
       } else {
         var retornoDados = retorno.dados;
-        console.log(retornoDados);
+        //Atualizando dados do profile professor
+        if (retornoDados[0]){
+          $('#professorCardNome').html(retornoDados[0].nome);
+          $('#professorCardEmail').html(retornoDados[0].email);
+          $('#professorCardTelefone').html(retornoDados[0].telefone);
+          $('#professorCardDescricao').html(retornoDados[0].descricao);
+        }
+
+
         var cargaHorariaAusente = 0;
         var cargaHorariaPresente = 0;
         var cargaHorariaDisciplina = retornoDados[0] ? retornoDados[0].carga_horaria : 0;

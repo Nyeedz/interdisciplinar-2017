@@ -17,7 +17,12 @@ $(document).ready(function(){
         }
 
         $.post('Perfil/perfilAction.php',atualizacaoDados,function(dados){
-            console.log(dados);
+            var retorno = JSON.parse(dados);
+            if (retorno.erro) {
+              ALERTA.falha(retorno.msg);
+            } else {
+              ALERTA.sucesso(retorno.msg);
+            }
         });
     });
 
