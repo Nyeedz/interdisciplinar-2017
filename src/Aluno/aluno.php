@@ -62,10 +62,6 @@ require('../Padroes/header.php');
               </div>
             </div>
           </li>
-          <li class="bold active">
-            <a href="/" class="waves-effect waves-cyan">
-              <i class="mdi-action-dashboard"></i> Dashboard</a>
-          </li>
           <li class="no-padding">
             <ul class="collapsible collapsible-accordion">
               <li class="bold">
@@ -115,7 +111,8 @@ require('../Padroes/header.php');
           </div>
           <div id="chart-dashboard" class="grafico">
             <div class="row">
-              <div class="col s12">
+              <!-- Gráfico -->
+              <div class="col s7">
                 <div class="card">
                   <div class="card-move-up waves-effect waves-block waves-light">
                     <div class="move-up cyan darken-1">
@@ -135,40 +132,41 @@ require('../Padroes/header.php');
                         <li class="home ultra-small"><span class="legend-color"></span>Carga horária Total</li>
                         <li class="mobile ultra-small"><span class="legend-color"></span> Faltas</li>
                         <li class="kitchen ultra-small"><span class="legend-color"></span> Presença</li>
-
                       </ul>
                     </div>
                   </div>
                 </div>
               </div>
-              <!-- <div class="col s12 m6 l4">
+              <!-- Dados professor -->
+              <div class="col s5">
                 <div id="profile-card" class="card">
                   <div class="card-image waves-effect waves-block waves-light">
                     <img class="activator" src="../Imports/images/user-bg.jpg" alt="user background">
                   </div>
                   <div class="card-content">
-                    <img src="../Imports/images/avatar.jpg" alt="" class="circle responsive-img activator card-profile-image">
                     <a class="btn-floating activator btn-move-up waves-effect waves-light darken-2 right">
                       <i class="mdi-action-account-circle"></i>
                     </a>
 
-                    <span class="card-title activator grey-text text-darken-4"> nome aluno</span>
-                    <p><i class="mdi-action-perm-identity cyan-text text-darken-2"></i> Aluno</p>
-                    <p><i class="mdi-action-perm-phone-msg cyan-text text-darken-2"></i> telefone aluno</p>
-                    <p><i class="mdi-communication-email cyan-text text-darken-2"></i> email aluno</p>
+                    <span class="card-title activator grey-text text-darken-4" id="professorCardNome"></span>
+                    <p>
+                      <i class="mdi-action-perm-identity cyan-text text-darken-2" ></i> 
+                      Professor 
+                    </p>
+                    <p>
+                      <i class="mdi-action-perm-phone-msg cyan-text text-darken-2" id="professorCardTelefone"></i>
+                      </p>
+                    <p>
+                      <i class="mdi-communication-email cyan-text text-darken-2" id="professorCardEmail"></i>
+                    </p>
 
                   </div>
                   <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4"> nome aluno <i class="mdi-navigation-close right"></i></span>
-                    <p>Here is some more information about this card.</p>
-                    <p><i class="mdi-action-perm-identity cyan-text text-darken-2"></i> Project Manager</p>
-                    <p><i class="mdi-action-perm-phone-msg cyan-text text-darken-2"></i> +1 (612) 222 8989</p>
-                    <p><i class="mdi-communication-email cyan-text text-darken-2"></i> mail@domain.com</p>
-                    <p><i class="mdi-social-cake cyan-text text-darken-2"></i> 18th June 1990</p>
-                    <p><i class="mdi-device-airplanemode-on cyan-text text-darken-2"></i> BAR - AUS</p>
+                    <span class="card-title grey-text text-darken-4">Descrição:<i class="mdi-navigation-close right"></i></span>
+                    <p id="professorCardDescricao"></p>
                   </div>
                 </div>
-              </div> -->
+              </div>
             </div>
           </div>
           <!--end container-->

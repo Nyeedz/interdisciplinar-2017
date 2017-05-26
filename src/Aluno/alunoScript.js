@@ -80,6 +80,7 @@ $(document).ready(function () {
         ALERTA.falha(retorno.msg);
       } else {
         var retornoDados = retorno.dados;
+        console.log(retornoDados);
         var cargaHorariaAusente = 0;
         var cargaHorariaPresente = 0;
         var cargaHorariaDisciplina = retornoDados[0] ? retornoDados[0].carga_horaria : 0;
