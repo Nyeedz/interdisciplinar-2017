@@ -141,34 +141,6 @@ require('../Padroes/header.php');
                   </div>
                 </div>
               </div>
-              <!-- <div class="col s12 m6 l4">
-                <div id="profile-card" class="card">
-                  <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="../Imports/images/user-bg.jpg" alt="user background">
-                  </div>
-                  <div class="card-content">
-                    <img src="../Imports/images/avatar.jpg" alt="" class="circle responsive-img activator card-profile-image">
-                    <a class="btn-floating activator btn-move-up waves-effect waves-light darken-2 right">
-                      <i class="mdi-action-account-circle"></i>
-                    </a>
-
-                    <span class="card-title activator grey-text text-darken-4"> nome aluno</span>
-                    <p><i class="mdi-action-perm-identity cyan-text text-darken-2"></i> Aluno</p>
-                    <p><i class="mdi-action-perm-phone-msg cyan-text text-darken-2"></i> telefone aluno</p>
-                    <p><i class="mdi-communication-email cyan-text text-darken-2"></i> email aluno</p>
-
-                  </div>
-                  <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4"> nome aluno <i class="mdi-navigation-close right"></i></span>
-                    <p>Here is some more information about this card.</p>
-                    <p><i class="mdi-action-perm-identity cyan-text text-darken-2"></i> Project Manager</p>
-                    <p><i class="mdi-action-perm-phone-msg cyan-text text-darken-2"></i> +1 (612) 222 8989</p>
-                    <p><i class="mdi-communication-email cyan-text text-darken-2"></i> mail@domain.com</p>
-                    <p><i class="mdi-social-cake cyan-text text-darken-2"></i> 18th June 1990</p>
-                    <p><i class="mdi-device-airplanemode-on cyan-text text-darken-2"></i> BAR - AUS</p>
-                  </div>
-                </div>
-              </div> -->
             </div>
           </div>
           <!--end container-->
@@ -182,8 +154,8 @@ require('../Padroes/header.php');
     <footer class="page-footer" id="footer">
       <div class="footer-copyright">
         <div class="container">
-          Copyright © 2015 <a class="grey-text text-lighten-4" href="http://themeforest.net/user/geekslabs/portfolio?ref=geekslabs" target="_blank">GeeksLabs</a> All rights reserved.
-          <span class="right"> Design and Developed by <a class="grey-text text-lighten-4" href="http://geekslabs.com/">GeeksLabs</a></span>
+          Copyright © 2017 <a class="grey-text text-lighten-4" href="#" target="_blank">Engenharia da Computação Unisal Lorena/SP</a> <a class="grey-text text-lighten-4" href="http://geekslabs.com/">GeeksLabs</a> rights reserved.
+          <span class="right"> Design and Developed by <a class="grey-text text-lighten-4" href="http://geekslabs.com/">Christian Fernandes & Ruan Caetano</a></span>
         </div>
       </div>
     </footer>
