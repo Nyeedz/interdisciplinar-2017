@@ -18,7 +18,7 @@ require('../Padroes/header.php');
             <li>
               <h1 class="logo-wrapper">
               <a href="" class="brand-logo darken-1">
-                <img src="../Imports/images/unisal.jpg" alt="materialize logo">
+                <img src="../Imports/images/unisal.png" alt="materialize logo">
               </a> <span class="logo-text">Unisal</span>
             </h1>
             </li>
