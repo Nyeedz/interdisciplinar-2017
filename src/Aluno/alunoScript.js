@@ -136,20 +136,20 @@ $(document).ready(function () {
         var data = [
           {
             value: parseFloat(cargaHorariaAusente * 100 / cargaHorariaDisciplina),
-            color: "#F7464A",
-            highlight: "#FF5A5E",
+            color: "#E53935",
+            highlight: "#D32F2F",
             label: "Faltas"
           },
           {
             value:  parseFloat(cargaHorariaPresente * 100 / cargaHorariaDisciplina),
             color: "#4CAF50",
-            highlight: "#1B5E20",
+            highlight: "#43A047",
             label: "Presença"
           },
           {
              value: 100,
-             color: "#FDB45C",
-             highlight: "#FFC870",
+             color: "#BDBDBD",
+             highlight: "#9E9E9E",
              label: "Carga Horária Disciplina"
            }
         ];
