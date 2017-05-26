@@ -75,11 +75,11 @@ header .brand-logo {
     margin-bottom: -25px
 }
 .btn {
-    background-color: #4D9ABE;
+    background-color: #4D9ABE!important;
     margin: 0!important
 }
 .btn:hover {
-    background-color: #387098;
+    background-color: #387098 !important;
 }
 .input-field .prefix.active {
     color: #4D9ABE
@@ -91,6 +91,13 @@ header .brand-logo {
     border-bottom: 1px solid #4D9ABE;
     box-shadow: 0 1px 0 0 #4D9ABE
 }
+.input-field textarea[class=materialize-textarea]:focus {
+  border-bottom: 1px solid #4D9ABE;
+  box-shadow: 0 1px 0 0 #4D9ABE;
+  }
+  .input-field textarea[class=materialize-textarea]:focus +label {
+    color: #4D9ABE
+    }
 .input-field input[type=text]:focus + label {
     color: #4D9ABE
 }

@@ -1,5 +1,6 @@
 $(document).ready(function () {
     var dadosUser = JSON.parse(sessionStorage.dadosUser);
+    $('#chamadas').hide();
     //Evento para o click no nome da disciplina, atualizar tabela de chamdas
     $('#btBuscarChamadas').on("click", function () {
         var idDisciplina = $('#selectVerificaListaChamadas').val();
@@ -8,6 +9,7 @@ $(document).ready(function () {
             if (retorno.erro) {
                 ALERTA.falha(retorno.msg);
             } else {
+                $('#chamadas').show();
                 var retornoDados = retorno.dados;
                 //Atualiza tabela
                 var corpoTabela = $('#corpoTabelaChamadasProfessor');

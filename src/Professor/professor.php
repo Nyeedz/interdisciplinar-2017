@@ -52,14 +52,14 @@ require('../Padroes/header.php');
         <ul id="slide-out" class="side-nav fixed leftside-navigation">
           <li class="user-details cyan darken-2">
             <div class="row">
-              <div class="col col s8 m8 l8">
+              <div class="col s8 m8 l8">
                 <ul id="profile-dropdown" class="dropdown-content">
                   <li id="btPerfilAside"><a href="#"><i class="mdi-action-face-unlock"></i> Perfil</a></li>
                   <li class="divider"></li>
                   <li id="btLogoutProfessor"><a><i class="mdi-hardware-keyboard-tab"></i> Logout</a></li>
                 </ul>
-                <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" 
-                  href="#" 
+                <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn"
+                  href="#"
                   data-activates="profile-dropdown"
                   id="nomeProfessorAside">
                 </a>
@@ -140,7 +140,7 @@ require('../Padroes/header.php');
               <?php require_once "CadastrarAluno/cadastrarAlunoCard.php" ?>
             </div>
 
-             <div id="espacoVerificarListaChamadas" class="invisivel"> 
+             <div id="espacoVerificarListaChamadas" class="invisivel">
               <?php require_once "VerificarListaChamadas/verificarListaChamadas.php" ?>
             </div>
 
@@ -155,7 +155,7 @@ require('../Padroes/header.php');
           </div>
         </div>
 
-  
+
       </section>
       <!-- END CONTENT -->
       </div>
@@ -163,10 +163,10 @@ require('../Padroes/header.php');
     </div>
     <!-- END MAIN -->
     <!-- START FOOTER -->
-    <footer class="page-footer">
+    <footer class="page-footer" id="footer">
       <div class="footer-copyright">
         <div class="container">
-          Copyright © 2017 <a class="grey-text text-lighten-4" href="#" target="_blank">Engenharia da Computação Unisal Lorena/SP</a> All rights reserved.
+          Copyright © 2017 <a class="grey-text text-lighten-4" href="#" target="_blank">Engenharia da Computação Unisal Lorena/SP</a> <a class="grey-text text-lighten-4" href="http://geekslabs.com/">GeeksLabs</a> rights reserved.
           <span class="right"> Design and Developed by <a class="grey-text text-lighten-4" href="http://geekslabs.com/">Christian Fernandes & Ruan Caetano</a></span>
         </div>
       </div>
