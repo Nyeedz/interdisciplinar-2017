@@ -15,7 +15,7 @@ html {
   align-items: center
 }
 @media screen and (max-width: 600px) {
-    .card {
+    .card-mobile {
         max-width: 90%
     }
 }
@@ -126,7 +126,7 @@ input[type="text"]:focus:not([randonly]) {
   box-shadow: 0 1px 0 0 #4D9ABE;
 }
 ul.dropdown-content.select-dropdown li span {
-    color: #4D9ABE !important  
+    color: #4D9ABE !important
 }
 .container .row {
     margin: 0 auto

@@ -130,9 +130,6 @@ $(document).ready(function () {
         }
         corpoTabela.append(resultadoChamadas); //atualiza tabela
         //Dados do gráfico
-        var percent = cargaHorariaAusente * 100 / cargaHorariaDisciplina;
-        var xxx = percent+'%';
-        console.log(xxx);
         var data = [
           {
             value: parseFloat(cargaHorariaAusente * 100 / cargaHorariaDisciplina),

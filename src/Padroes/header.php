@@ -8,12 +8,12 @@
     <meta name="description" content="Portal para gerenciar um sistema de chamadas da UNISAL - Lorena-SP">
     <title>Interdisciplinar 2017</title>
     <!-- Favicons-->
-   <link rel="icon" href="../Imports/images/favicon/favicon-32x32.png" sizes="32x32">
+   <link rel="icon" href="../Imports/images/favicon/favicon.ico" sizes="32x32">
    <!-- Favicons-->
-   <link rel="apple-touch-icon-precomposed" href="../Imports/images/favicon/apple-touch-icon-152x152.png">
+   <link rel="apple-touch-icon-precomposed" href="../Imports/images/favicon/favicon.ico">
    <!-- For iPhone -->
-   <meta name="msapplication-TileColor" content="#00bcd4">
-   <meta name="msapplication-TileImage" content="../Imports/images/favicon/mstile-144x144.png">
+   <meta name="msapplication-TileColor" content="#4D9ABE">
+   <meta name="msapplication-TileImage" content="../Imports/images/favicon/favicon.ico">
    <!-- For Windows Phone -->
     <!-- CORE CSS-->
     <link rel="stylesheet" href="../Imports/css/materialize.min.css">
